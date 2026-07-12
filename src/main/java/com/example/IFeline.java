@@ -7,5 +7,5 @@ public interface IFeline extends Predator {
 
     int getKittens(int count);
 
-    public List<String> getFood(String animalKind) throws Exception;
+    List<String> getFood(String animalKind) throws Exception;
 }
