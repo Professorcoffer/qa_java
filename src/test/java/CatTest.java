@@ -31,9 +31,15 @@ public class CatTest {
     }
 
     @Test
-    public void getFoodTest() throws Exception {
+    public void getFoodResultTest() throws Exception {
         Mockito.when(predator.eatMeat()).thenReturn(expectedCatFood);
         assertEquals("Возвращён неверный список еды кошки!", expectedCatFood, cat.getFood());
+    }
+
+    @Test
+    public void getFoodBehaviorTest() throws Exception {
+        Mockito.when(predator.eatMeat()).thenReturn(expectedCatFood);
+        cat.getFood();
         Mockito.verify(predator).eatMeat();
     }
 }

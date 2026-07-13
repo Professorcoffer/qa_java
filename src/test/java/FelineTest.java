@@ -18,9 +18,15 @@ public class FelineTest {
 
 
     @Test
-    public void eatMeatTest() throws Exception {
+    public void eatMeatResultTest() throws Exception {
         Mockito.doReturn(expectedFelineFood).when(feline).getFood("Хищник");
-        assertEquals("Возвращен неверный список еды кошачьего!",feline.eatMeat(), expectedFelineFood);
+        assertEquals("Возвращен неверный список еды кошачьего!", feline.eatMeat(), expectedFelineFood);
+    }
+
+    @Test
+    public void eatMeatBehaviorTest() throws Exception {
+        Mockito.doReturn(expectedFelineFood).when(feline).getFood("Хищник");
+        feline.eatMeat();
         Mockito.verify(feline).getFood("Хищник");
     }
 
@@ -30,8 +36,13 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensNoArgsTest() {
+    public void getKittensNoArgsResultTest() {
         assertEquals("Количество котят без аргументов неверное!", 1, feline.getKittens());
+    }
+
+    @Test
+    public void getKittensNoArgsBehaviorTest() {
+        feline.getKittens();
         Mockito.verify(feline).getKittens(1);
     }
 

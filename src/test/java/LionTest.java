@@ -29,18 +29,32 @@ public class LionTest {
     }
 
     @Test
-    public void getKittensTest() throws Exception {
+    public void getKittensResultTest() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(4);
         lion = new Lion("Самка", feline);
         assertEquals("Возвращено неверное количество котят льва!", 4, lion.getKittens());
+    }
+
+    @Test
+    public void getKittensBehaviorTest() throws Exception {
+        Mockito.when(feline.getKittens()).thenReturn(4);
+        lion = new Lion("Самка", feline);
+        lion.getKittens();
         Mockito.verify(feline).getKittens();
     }
 
     @Test
-    public void getFoodTest() throws Exception {
+    public void getFoodResultTest() throws Exception {
         Mockito.when(feline.getFood("Хищник")).thenReturn(expectedLionFood);
         lion = new Lion("Самец", feline);
         assertEquals("Возвращен неверный список еды льва!", expectedLionFood, lion.getFood());
+    }
+
+    @Test
+    public void getFoodBehaviorTest() throws Exception {
+        Mockito.when(feline.getFood("Хищник")).thenReturn(expectedLionFood);
+        lion = new Lion("Самец", feline);
+        lion.getFood();
         Mockito.verify(feline).getFood("Хищник");
     }
 }
